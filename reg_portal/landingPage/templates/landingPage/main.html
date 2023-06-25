@@ -1,0 +1,90 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Portal</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/landing.css' %}">
+
+    <!-- Hint CSS -->
+    <link rel="stylesheet" href="{% static 'css/hint.base.css' %}" />
+
+    <!-- Google Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    
+
+</head>
+<body>
+        <div class="sidebar col-2">
+            <div class="top">
+                <button id="hamburger" class="hint--right" aria-label="Expand">
+                    <span class="material-symbols-outlined">
+                        chevron_right
+                    </span>
+                </button>
+                <img id="logo-mobile" src="{% static 'images/ecell-logo-mobile.png' %}">
+                <img id="logo" src="{% static 'images/ecell-logo-white.png' %}" alt="ECell IIT Kharagpur">
+            </div>
+            <div class="middle">
+                <nav>
+                    <nav>
+                        <ul>
+                            <li><a href="{% url 'home' %}" {% url 'home' as url %}
+                                {% if request.path == url %} class="active" {% endif %}
+                                aria-label="Register">
+                                <span class="material-symbols-outlined">
+                                    inventory
+                                </span>
+                                <span class="linktxt">Register</span></a></li>
+    
+                            <li><a href="{% url 'about' %}" {% url 'about' as url %}
+                                {% if request.path == url %} class="active" {% endif %}
+                                aria-label="About Us">
+                                    <span class="material-symbols-outlined">    
+                                        groups
+                                    </span>
+                                <span class="linktxt">About Us</span></a></li>
+
+                            <li><a href="{% url 'contact' %}" {% url 'contact' as url %}
+                                {% if request.path == url %} class="active" {% endif %}
+                                    aria-label="Contact Us">
+                                    <span class="material-symbols-outlined">
+                                        call
+                                    </span>
+                                    <span class="linktxt">Contact Us</span></a>
+                            </li>
+    
+                            {% comment %} <li><a href="{% url 'participant_connect' %}" {% url 'participant_connect' as url %}
+                                    {% if request.path == url %} class="active" {% endif %}
+                                    aria-label="Participants">
+                                    <span class="material-symbols-outlined">
+                                        groups
+                                    </span>
+                                    <span class="linktxt">Connect</span></a>
+                            </li>
+                            
+                            <li><a href="{% url 'logout' %}?next={% url 'home' %}" aria-label="Log out">
+                                <span class="material-symbols-outlined">logout</span>
+                                <span class="linktxt">Log out</span></a></li> {% endcomment %}
+                        </ul>
+                    </nav>
+                </nav>
+            </div>
+            <!-- <div class="bottom">
+
+            </div> -->
+        </div>
+        <div class="main col-10">
+            {% block content %}{% endblock  %}
+        </div>
+</body>
+<script src="{% static 'js/hamburger.js' %}"></script>
+<script src="{% static 'js/mobileprofile.js' %}"></script>
+</html>

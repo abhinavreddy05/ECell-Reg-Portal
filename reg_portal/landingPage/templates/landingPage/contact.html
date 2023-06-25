@@ -1,1 +1,85 @@
 {% extends './main.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <div class="top col-11">
+        <h1>Contact Us</h1>
+        <p>Possimus expedita cupiditate culpa minima fugit, labore fuga earum? Porro eaque est atque ex corporis sequi eveniet autem, mollitia.<p>
+    </div>
+
+    <div class="middle col-11">
+        <div class="cards">
+            <div class="card">
+                <div class="content">
+                    <div class="front">
+                        <img class="profile" src="{% static 'images/chirag.jpeg' %}" alt="Chirag">
+                        <h2>Chirag Agarwal</h2>
+                    </div>
+                    <div class="back from-left">
+                        <h2>Chirag Agarwal</h2>
+                        <h3>Public Relation,<br> EAD LSM Coordinator</h3>
+
+                        <h4>Phone: +91863859832 </h4>
+
+                        <ul class="social-icon">
+                            <li><a href="https://www.facebook.com/profile.php?id=100073920122197&mibextid=ZbWKwL"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href=""><i class="fab fa-linkedin"></i></a></li>
+                            <li><a href="mailto:chirag.agarwal@ecell-iitkgp.org
+                            "><i class="fa-solid fa-envelope"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="content">
+                    <div class="front">
+                        <img class="profile" width="100%" src="{% static 'images/ankit.jpeg' %}" alt="">
+                        <h2>Ankit Kumar Soni</h2>
+                    </div>
+                    <div class="back from-bottom">
+                        <h2>Ankit Kunmar Soni</h2>
+
+                        <h3>Web Development</h3>
+                        <h4>Phone: +91863859832 </h4>
+
+                        <ul class="social-icon">
+                            <li><a href="https://www.facebook.com/profile.php?id=100074038685493&mibextid=ZbWKwL"><i
+                                        class="fab fa-facebook-f"></i></a></li>
+                            <li><a href=""><i
+                                        class="fab fa-linkedin"></i></a></li>
+                            <li><a href="mailto:ankit.kumar@ecell-iitkgp.org"><i class="fa-solid fa-envelope"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="content">
+                    <div class="front">
+                        <img class="profile" width="100%"
+                            src="{% static 'images/abhisar.jpeg' %}"
+                            alt="">
+                        <h2>Abhisar Upadhyay</h2>
+                    </div>
+                    <div class="back from-right">
+                        <h2>Abhisar upadhyay</h2>
+                        <h3>Public Relation,<br> EAD LSM Coordinator</h3>
+                        <h4>phone: +91863859832 </h4>
+                        
+                        <ul class="social-icon">
+                            <li><a href="https://www.facebook.com/profile.php?id=100076172946190&mibextid=ZbWKwL"><i
+                                        class="fab fa-facebook-f"></i></a></li>
+                            <li><a href=""><i
+                                        class="fab fa-linkedin"></i></a></li>
+                            <li><a href="mailto:abhisar.upadhyay@ecell-iitkgp.org"><i class="fa-solid fa-envelope"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

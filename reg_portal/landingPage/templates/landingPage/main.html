@@ -9,7 +9,10 @@
     <title>Registration Portal</title>
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/landing.css' %}">
+
+    {% if  'contact' in request.path %} <link rel="stylesheet" href="{% static 'css/contact.css' %}"> 
+    {% else %}<link rel="stylesheet" href="{% static 'css/landing.css' %}">{%endif%}
+
 
     <!-- Hint CSS -->
     <link rel="stylesheet" href="{% static 'css/hint.base.css' %}" />
@@ -30,7 +33,7 @@
                     </span>
                 </button>
                 <img id="logo-mobile" src="{% static 'images/ecell-logo-mobile.png' %}">
-                <img id="logo" src="{% static 'images/ecell-logo-white.png' %}" alt="ECell IIT Kharagpur">
+                <img id="logo" src="{% static 'images/ecell-logo-mobile.png' %}" alt="ECell IIT Kharagpur">
             </div>
             <div class="middle">
                 <nav>
@@ -43,14 +46,6 @@
                                     inventory
                                 </span>
                                 <span class="linktxt">Register</span></a></li>
-    
-                            <li><a href="{% url 'about' %}" {% url 'about' as url %}
-                                {% if request.path == url %} class="active" {% endif %}
-                                aria-label="About Us">
-                                    <span class="material-symbols-outlined">    
-                                        groups
-                                    </span>
-                                <span class="linktxt">About Us</span></a></li>
 
                             <li><a href="{% url 'contact' %}" {% url 'contact' as url %}
                                 {% if request.path == url %} class="active" {% endif %}

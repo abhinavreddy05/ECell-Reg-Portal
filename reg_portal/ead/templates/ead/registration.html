@@ -1,0 +1,27 @@
+{% extends './main.html' %}
+{% load static %}
+
+{% block content %}
+<div class="form-container col-9">
+    <p class="title">Register for EAD</p>
+    <form class="form" action="" method="post">
+        {% csrf_token %}
+
+        {% for field in form %}
+            <div class="input-group">
+                {{ field.label }}
+                {{ field }}
+                {% for error in field.errors %}
+                    <small style="color: red">{{ error }}</small>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+        <br>
+        <button class="sign" type="submit">Register</button>
+    </form>
+    <p class="signin">Have an account?
+        <a rel="noopener noreferrer" href="{% url 'ead_login' %}" class="">Sign In</a>
+    </p>
+</div>
+{% endblock content %}

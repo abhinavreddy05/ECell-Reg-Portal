@@ -1,0 +1,27 @@
+{% extends './main.html' %}
+{% load static %}
+
+{% block content %}
+{% if error_message %}
+            <p>{{ error_message }}</p>
+            {% endif %}
+
+            <div class="form-container col-9">
+                <p class="title">Login</p>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div class="input-group">
+                        {{ field.label }}
+                        {{ field }}
+                    </div>
+                    {% endfor %}
+                    {% comment %} <input type="hidden" name="next" value="{% url 'judge_dashboard' %}"> {% endcomment %}
+                    <br>
+                    <button class="sign" type="submit">Login</button>
+                </form>
+                
+                <p class="signin">Don't have an account? <a href="{% url 'ead_register' %}">Signup</a></p>
+
+            </div>
+{% endblock content %}

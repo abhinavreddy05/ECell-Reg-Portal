@@ -5,4 +5,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('', include('landingPage.urls'), name="home"),
+    path('ead/', include('ead.urls'), name="ead"),
 ]

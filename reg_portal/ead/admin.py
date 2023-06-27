@@ -1,3 +1,8 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
+from .models import EADUser
 
-# Register your models here.
+class EADUserAdmin(admin.ModelAdmin):
+    pass
+
+admin.site.register(EADUser, EADUserAdmin)

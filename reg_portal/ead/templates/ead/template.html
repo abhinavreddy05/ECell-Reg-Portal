@@ -11,6 +11,10 @@
 
     <link rel="stylesheet" href="{% static 'css/ead_style.css' %}">
     
+    {% if 'dashboard' in request.path %}
+        <link rel="stylesheet" href="{% static 'css/ead_dashboard.css' %}">
+    {% endif %}
+
     <!-- Hint CSS -->
     <link rel="stylesheet" href="{% static 'css/ead_hint.base.css' %}" />
 

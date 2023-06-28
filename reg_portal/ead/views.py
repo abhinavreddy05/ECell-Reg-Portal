@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from .forms import CombinedRegistrationForm
+from .decorators import for_ead
 
 def register(request):
     if request.method == 'POST':
@@ -25,14 +27,22 @@ def register(request):
 def login(request):
     return render(request, 'ead/login.html')
 
+@login_required(login_url='/ead/')
+@for_ead
 def dashboard(request):
     return render(request, 'ead/dashboard.html')
 
+@login_required(login_url='/ead/')
+@for_ead
 def event(request):
     return render(request, 'ead/dashboard.html')
 
+@login_required(login_url='/ead/')
+@for_ead
 def result(request):
     return render(request, 'ead/dashboard.html')
 
+@login_required(login_url='/ead/')
+@for_ead
 def certificate(request):
     return render(request, 'ead/dashboard.html')

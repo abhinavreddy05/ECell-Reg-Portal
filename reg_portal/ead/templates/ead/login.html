@@ -13,10 +13,19 @@
                     {% for field in form %}
                     <div class="input-group">
                         {{ field.label }}
-                        {{ field }}
+                        {% if field.name == 'password' %}
+                            <div class="password-container">
+                                {{ field }}
+                                <button type="button" class="password-toggle-btn" onclick="togglePassword()"><span class="material-symbols-outlined">
+                                    visibility
+                                    </span></button>
+                            </div>
+                        {% else %}
+                            {{ field }}
+                        {% endif %}
                     </div>
                     {% endfor %}
-                    {% comment %} <input type="hidden" name="next" value="{% url 'judge_dashboard' %}"> {% endcomment %}
+                    <input type="hidden" name="next" value="{% url 'ead_dashboard' %}">
                     <br>
                     <button class="sign" type="submit">Login</button>
                 </form>
@@ -24,4 +33,19 @@
                 <p class="signin">Don't have an account? <a href="{% url 'ead_register' %}">Signup</a></p>
 
             </div>
+
+            <script>
+                function togglePassword() {
+                    const passwordInput = document.getElementById("id_password");
+                    const passwordToggleBtn = document.querySelector(".password-toggle-btn");
+            
+                    if (passwordInput.type === "password") {
+                        passwordInput.type = "text";
+                        passwordToggleBtn.innerHTML = '<span class="material-symbols-outlined">visibility_off</span>';
+                    } else {
+                        passwordInput.type = "password";
+                        passwordToggleBtn.innerHTML = '<span class="material-symbols-outlined">visibility</span>';
+                    }
+                }
+            </script>
 {% endblock content %}

@@ -6,4 +6,5 @@ urlpatterns = [
 
     path('', include('landingPage.urls'), name="home"),
     path('ead/', include('ead.urls'), name="ead"),
+    path('lsm/', include('lsm.urls'), name="lsm"),
 ]

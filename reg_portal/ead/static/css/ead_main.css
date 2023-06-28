@@ -165,6 +165,31 @@ body {
   border-color: #fcfcfc;
 }
 
+.password-container{
+  display:  flex;
+  flex-direction: row;
+}
+
+.password-container button{
+  background-color: transparent;
+  color: white;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.ca-container{
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.ca-container input{
+  width: fit-content;
+  
+}
+
 .dropdown-select {
   font-size: 0.65625rem; 
   line-height: 0.9375rem; 
@@ -231,6 +256,9 @@ body {
 @media (max-width: 750px) {
   .top {
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
   }
   .middle {
     flex-direction: column;

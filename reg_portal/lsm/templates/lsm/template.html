@@ -1,0 +1,91 @@
+{% load static %}
+
+{% comment %} {% if user.is_authenticated %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="{% static 'css/lsm_style.css' %}">
+    
+    {% if 'dashboard' in request.path %}
+        <link rel="stylesheet" href="{% static 'css/lsm_dashboard.css' %}">
+    {% endif %}
+
+    <!-- Hint CSS -->
+    <link rel="stylesheet" href="{% static 'css/lsm_hint.base.css' %}" />
+
+    <!-- Google Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    
+
+</head>
+<body>
+        <div class="sidebar col-2">
+            <div class="top">
+                <button id="hamburger" class="hint--right" aria-label="Expand">
+                    <span class="material-symbols-outlined">
+                        chevron_right
+                    </span>
+                </button>
+                <img id="logo-mobile" src="{% static 'images/ecell-logo-mobile.png' %}">
+                <img id="logo" src="{% static 'images/ecell-logo-white.png' %}" alt="ECell IIT Kharagpur">
+            </div>
+            <div class="middle">
+                <nav>
+                    <ul>
+                        <li><a href="{% url 'lsm_dashboard' %}" {% url 'lsm_dashboard' as url %}
+                            {% if request.path == url %} class="active"{% endif %}
+                            aria-label="Dashboard">
+                            <span class="material-symbols-outlined">team_dashboard</span>
+                            <span class="linktxt">Dashboard</span></a></li>
+
+                        {% comment %} <li><a href="{% url 'lsm_result' %}" {% url 'lsm_result' as url %}
+                                {% if request.path == url %} class="active" {% endif %}
+                                aria-label="Participants">
+                                <span class="material-symbols-outlined">
+                                    assignment_turned_in
+                                </span>
+                                <span class="linktxt">Result</span></a>
+                        </li>
+
+                        <li><a href="{% url 'lsm_event' %}" {% url 'lsm_event' as url %}
+                            {% if request.path == url %} class="active" {% endif %}
+                            aria-label="Leaderboard">
+                            <span class="material-symbols-outlined">
+                                event
+                                </span>
+                            <span class="linktxt">Event Details</span></a></li>
+
+                        <li><a href="{% url 'lsm_certificate' %}" {% url 'lsm_certificate' as url %}
+                                {% if request.path == url %} class="active" {% endif %}
+                                aria-label="Participants">
+                                <span class="material-symbols-outlined">
+                                    card_membership
+                                    </span>
+                                <span class="linktxt">Certificate</span></a>
+                        </li> {% endcomment %}
+                        
+                        <li><a href="{% url 'logout' %}?next={% url 'lsm_home' %}" aria-label="Log out">
+                            <span class="material-symbols-outlined">logout</span>
+                            <span class="linktxt">Log out</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- <div class="bottom">
+
+            </div> -->
+        </div>
+        <div class="main col-10">
+            {% block content %}{% endblock  %}
+        </div>
+</body>
+<script src="{% static 'js/hamburger.js' %}"></script>
+<script src="{% static 'js/mobileprofile.js' %}"></script>
+</html>
+{% comment %} {% endif %} {% endcomment %}

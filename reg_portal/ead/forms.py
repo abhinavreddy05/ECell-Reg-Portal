@@ -2,13 +2,17 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 from ead.models import EADUser
+from django.contrib.auth.forms import AuthenticationForm
+from django.shortcuts import redirect
 
 User = get_user_model()
 
 class RegistrationForm(UserCreationForm):
+    password2 = None
+
     class Meta:
         model = User
-        fields = ('username', 'email', 'password1', 'password2')
+        fields = ('username', 'name', 'email', 'password1',)
 
 class EADUserForm(forms.ModelForm):
     ead_city = forms.ChoiceField(
@@ -18,7 +22,7 @@ class EADUserForm(forms.ModelForm):
 
     class Meta:
         model = EADUser
-        fields = ('mobile', 'college_name', 'ead_city')
+        fields = ('mobile', 'college_name', 'ead_city', 'is_ca')
 
 class CombinedRegistrationForm(forms.Form):
     def __init__(self, *args, **kwargs):
@@ -40,3 +44,11 @@ class CombinedRegistrationForm(forms.Form):
         ead_user.save()
 
         return user
+
+class CustomAuthenticationForm(AuthenticationForm):
+    def confirm_login_allowed(self, user):
+        if not user.ead:
+            return redirect('/ead/register')
+
+        # Call the parent's confirm_login_allowed method to perform other default checks
+        super().confirm_login_allowed(user)

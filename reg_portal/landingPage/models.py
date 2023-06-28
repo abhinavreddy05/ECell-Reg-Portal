@@ -6,6 +6,7 @@ class CustomUser(AbstractUser):
 
     ead = models.BooleanField('registered for ead', blank=True, default=False)
     lsm = models.BooleanField('registered for lsm', blank=True, default=False)
+    empresario = models.BooleanField('registered for empresario', blank=True, default=False)
     
     # Add related_name argument to avoid clash with auth.User.groups
     groups = models.ManyToManyField(Group, related_name='customuser_set')

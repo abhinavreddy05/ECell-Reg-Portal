@@ -1,0 +1,39 @@
+{% load static %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empresario 2023</title>
+
+    <link rel="stylesheet" href="{% static 'css/empresario_main.css' %}">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+</head>
+<body>
+    <div class="top col-11">
+        <a href="{% url 'empresario_home' %}" ><img id="logo" src="{% static 'images/empresario.png' %}" alt="empresario"></a>
+        <a href="/" ><img id="logo" src="{% static 'images/ecell-logo.png' %}" alt="ECell IIT Kharagpur"></a>
+    </div>
+    <div class="middle col-10">
+        <div class="left col-5">
+            <div class="info">
+                <h1>Empresario 2023</h1>
+                <h2>Global Business Model Competition</h2>
+                <p>Empresario is the annual business model competition organized by Entrepreneurship Cell, IIT Kharagpur. Entrepreneurship Cell is searching for innovative and enterprising ideas through Empresario. Empresario'22 provides a platform for students to get excellent professional mentorship from our experienced, varied, and distinguished mentor pool, and to showcase their ideas in front of Venture Capitalists, Angel Investors, and Industry Leaders.</p>
+            </div>
+        </div>
+        <div class="right col-5">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+    <!-- <div class="bottom">
+
+    </div> -->
+</body>
+</html>

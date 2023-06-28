@@ -1,0 +1,71 @@
+{% extends './main.html' %}
+{% load static %}
+
+{% block content %}
+<div class="form-container col-9">
+    <p class="title">Register for Empresario</p>
+    <form class="form" action="" method="post">
+        {% csrf_token %}
+
+        {% for field in form.empresario_user_form %}
+            <div class="input-group">
+                    {{ field.label }}
+                    {{ field }}
+                {% for error in field.errors %}
+                    <small style="color: red">{{ error }}</small>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+        {% for field in form.registration_form %}
+            <div class="input-group">
+                {{ field.label }}
+                {% if field.name == 'password1' %}
+                    <div class="password-container">
+                        {{ field }}
+                        <button type="button" class="password-toggle-btn" onclick="togglePassword()"><span class="material-symbols-outlined">
+                            visibility
+                            </span></button>
+                    </div>
+                {% else %}
+                    {{ field }}
+                {% endif %}
+                {% for error in field.errors %}http://127.0.0.1:8000/empresario/register/
+                    <small style="color: red">{{ error }}</small>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+        <br>
+        <div class="btns">
+            <button class="sign nav-button" style="width: fit-content;" disabled><span class="material-symbols-outlined">
+                chevron_left
+                </span></button>
+            <button class="sign nav-button" style="width: fit-content;"><span class="material-symbols-outlined">
+                chevron_right
+                </span></button>
+            <button class="sign nav-button" type="submit" style="display: none;">Register</button>
+        </div>
+    </form>
+    <p class="signin">Have an account?
+        <a rel="noopener noreferrer" href="{% url 'empresario_login' %}" class="">Sign In</a>
+    </p>
+</div>
+
+<script>
+    function togglePassword() {
+        const passwordInput = document.getElementById("id_password1");
+        const passwordToggleBtn = document.querySelector(".password-toggle-btn");
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            passwordToggleBtn.innerHTML = '<span class="material-symbols-outlined">visibility_off</span>';
+        } else {
+            passwordInput.type = "password";
+            passwordToggleBtn.innerHTML = '<span class="material-symbols-outlined">visibility</span>';
+        }
+    }
+</script>
+
+<script src="{% static "js/empresario_pagination_reg.js" %}"></script>
+{% endblock content %}

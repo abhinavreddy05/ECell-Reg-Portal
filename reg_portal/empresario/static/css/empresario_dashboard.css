@@ -1,0 +1,86 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+}
+
+.main h1{
+    text-align: center;
+}
+
+.main .content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.main .top{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.main .top .user{
+    display: flex;
+    flex-direction: row;
+    background-color: #00000010;
+    padding: 2rem;
+    border-radius: 2rem;
+    gap: 2rem;
+    min-width: fit-content;
+}
+
+.main .top .user .left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: fit-content;
+}
+
+.main .top .user .left img{
+    border-radius: 100rem;
+    width: 150px;
+    height: 150px;
+    padding: 0.1rem;
+    border: 3px solid #333;
+}
+
+.main .top .user .right{
+    display: flex;
+    flex-direction: column;
+    min-width: fit-content;
+}
+
+.main .top .user .right ul{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.main .top .ead{
+    display: flex;
+    flex-direction: column;
+    background-color: #00000010;
+    padding: 2rem;
+    border-radius: 2rem;
+    min-width: fit-content;
+    gap: 1rem;
+}
+
+.main .top .ead img{
+    width: 200px;
+}
+
+.main .middle{
+    padding: 1rem 0;
+}
+
+.main .middle .notice{
+    background-color: #00000010;
+    padding: 1rem;
+    border-radius: 2rem;
+    height: 100%;
+}

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'landingPage',
     'ead',
     'lsm',
+    'empresario',
 ]
 
 MIDDLEWARE = [

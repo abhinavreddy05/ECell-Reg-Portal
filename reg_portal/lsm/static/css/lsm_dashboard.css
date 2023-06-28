@@ -25,7 +25,14 @@
     display: flex;
     flex-direction: row;
     background-color: #00000010;
+    /* background: rgba( 255, 255, 255, 0.25 ); */
+    box-shadow: 0 8px 10px 0 rgb(125 124 124 / 30%);
+    backdrop-filter: blur( 8px );
+    -webkit-backdrop-filter: blur( 8px );
+    border-radius: 10px;
     padding: 2rem;
+    padding-bottom: 0.5rem;
+    padding-top: 1rem;
     border-radius: 2rem;
     gap: 2rem;
     min-width: fit-content;
@@ -37,12 +44,14 @@
     align-items: center;
     justify-content: center;
     min-width: fit-content;
+    margin-left: 6em;
+    margin-right: 1em;
 }
 
 .main .top .user .left img{
     border-radius: 100rem;
-    width: 150px;
-    height: 150px;
+    width: 12em;
+    height: 12em;
     padding: 0.1rem;
     border: 3px solid #333;
 }
@@ -55,15 +64,23 @@
 
 .main .top .user .right ul{
     display: flex;
-    flex-direction: row;
     gap: 1rem;
     flex-wrap: wrap;
 }
 
 .main .top .ead{
     display: flex;
-    flex-direction: column;
+    
     background-color: #00000010;
+    /* background: rgba( 255, 255, 255, 0.25 ); */
+    box-shadow: 0 8px 10px 0 rgb(125 124 124 / 30%);
+    backdrop-filter: blur( 8px );
+    -webkit-backdrop-filter: blur( 8px );
+    border-radius: 10px;
+    padding: 2rem;
+    border-radius: 2rem;
+    gap: 2rem;
+    min-width: fit-content;
     padding: 2rem;
     border-radius: 2rem;
     min-width: fit-content;
@@ -71,7 +88,8 @@
 }
 
 .main .top .ead img{
-    width: 200px;
+    width: 15em;
+    margin-left: 4em;
 }
 
 .main .middle{
@@ -80,7 +98,39 @@
 
 .main .middle .notice{
     background-color: #00000010;
+    /* background: rgba( 255, 255, 255, 0.25 ); */
+    box-shadow: 0 8px 10px 0 rgb(125 124 124 / 30%);
+    backdrop-filter: blur( 8px );
+    -webkit-backdrop-filter: blur( 8px );
+    border-radius: 10px;
+    padding: 2rem;
+    border-radius: 2rem;
+    gap: 2rem;
+    min-width: fit-content;
     padding: 1rem;
     border-radius: 2rem;
     height: 100%;
 }
+.list-items{
+    display: flex;
+    flex-direction: column;
+}
+
+.list-items li{
+    padding: 0.4em;
+}
+.col-11{
+    display: flex;
+    flex-direction: row;
+}
+.payment{
+    display:flex;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 1em;
+    padding-top: 0.7em;
+}
+.payment li{
+    padding: 0.4em;
+}
+  

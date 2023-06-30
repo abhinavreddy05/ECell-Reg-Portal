@@ -38,6 +38,12 @@ class CombinedRegistrationForm(forms.Form):
     def is_valid(self):
         return self.registration_form.is_valid() and self.lsm_user_form.is_valid()
 
+    def cleaned_data(self):
+        return {
+            **self.registration_form.cleaned_data,
+            **self.lsm_user_form.cleaned_data
+        }
+
     def save(self):
         user = self.registration_form.save(commit=False)
         user.set_password(self.registration_form.cleaned_data['password1'])

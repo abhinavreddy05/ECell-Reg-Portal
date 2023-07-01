@@ -12,75 +12,78 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    flex-wrap: wrap;
+    align-items: stretch;
+    color: white;
 }
 
-.main .top{
+.main .content .left{
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
 }
 
-.main .top .user{
+.main .content .right{
+    display: flex;
+    flex-direction: column;
+}
+
+.main .content .left .card1{
     display: flex;
     flex-direction: row;
-    background-color: #00000010;
-    padding: 2rem;
-    border-radius: 2rem;
-    gap: 2rem;
     min-width: fit-content;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 29px;
+    background: rgba(0, 0, 0, 0.95);
+    box-shadow: 5px 6px 24px 0px rgba(0, 0, 0, 0.25);
 }
 
-.main .top .user .left{
+.main .content .left .card .profile{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0 1rem;
     justify-content: center;
-    min-width: fit-content;
 }
 
-.main .top .user .left img{
+.main .content .left .card .profile img{
     border-radius: 100rem;
-    width: 150px;
-    height: 150px;
-    padding: 0.1rem;
-    border: 3px solid #333;
+    width: 160px;
+    height: 160px;
+    filter: saturate(0);
 }
 
-.main .top .user .right{
+.main .content .left .card .profile h3{
+    margin: 0.5rem;
+}
+
+.main .content .left .card .info ul{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.main .content .left .card .info ul li{
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.main .content .left .card .info ul li span{
+    color: white;
+    margin: 0 0.2rem;
+}
+
+.main .content .left .card2{
     display: flex;
     flex-direction: column;
     min-width: fit-content;
-}
-
-.main .top .user .right ul{
-    display: flex;
-    flex-direction: row;
     gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.main .top .ead{
-    display: flex;
-    flex-direction: column;
-    background-color: #00000010;
-    padding: 2rem;
-    border-radius: 2rem;
-    min-width: fit-content;
-    gap: 1rem;
-}
-
-.main .top .ead img{
-    width: 200px;
-}
-
-.main .middle{
-    padding: 1rem 0;
-}
-
-.main .middle .notice{
-    background-color: #00000010;
     padding: 1rem;
-    border-radius: 2rem;
-    height: 100%;
+    border-radius: 29px;
+    background: rgba(0, 0, 0, 0.95);
+    box-shadow: 5px 6px 24px 0px rgba(0, 0, 0, 0.25);
+}
+
+.main .content .left .card2 h3{
+    margin: 0.4rem 0;
 }

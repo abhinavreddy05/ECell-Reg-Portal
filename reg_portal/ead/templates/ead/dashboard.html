@@ -4,31 +4,36 @@
 {% block content %}
 <h1>Dashboard</h1>
 <div class="content">
-    <div class="top col-8">
-        <div class="user col-11">
-            <div class="left col-4">
-                <img src="{% static 'images/profile.jpeg' %}" alt="">
-                <h3>User</h3>
+    <div class="left col-7">
+        <div class="card card1">
+            <div class="profile">
+                <img src="{% static 'images/profile.jpeg' %}" alt="Profile">
+                <h3>John Doe</h3>
             </div>
-            <div class="right col-8">
+            <div class="info">
                 <ul>
-                    <li><strong>Mobile: </strong><span>7981569113</span></li>
-                    <li><strong>Email: </strong><span>xyz@gmail.com</span></li>
-                    <li><strong>City: </strong><span>Hyderabad</span></li>
+                    <li>Email: <span>emailtemp@gmail.com</span></li>
+                    <li>Mobile: <span>7981587112</span></li>
+                    <li>City: <span>Hyderabad</span></li>
+                    <li>College: <span>Sreenidhi College of Engineering</span></li>
                 </ul>
-                <p><strong>College Name: </strong><span>XYZ College of Engineering</span></p>
             </div>
         </div>
-        <div class="ead col-11">
-            <img src="{% static 'images/ead.png' %}" alt="">
-            <ul>
-                <li>Visit our site</li>
-            </ul>
+        <div class="card card2">
+            <h3>Announcements:</h3>
+            <div class="info">
+                <ul>
+                    <li>Event poster out, checkout the speakers now!</li>
+                </ul>
+            </div>
         </div>
     </div>
-    <div class="middle col-4">
-        <div class="notice">
-            <h2>Announcements:</h2>
+    <div class="right col-5">
+        <div class="card">
+
+        </div>
+        <div class="card">
+            
         </div>
     </div>
 </div>

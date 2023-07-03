@@ -255,10 +255,11 @@ body {
 
 @media (max-width: 750px) {
   .top {
-    justify-content: center;
-    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column-reverse;
     gap: 1.5rem;
-    margin-bottom: 3rem;
+    margin-top: 95px;
+    margin-bottom: 10px;
   }
   .middle {
     flex-direction: column;

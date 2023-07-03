@@ -55,3 +55,8 @@ class CustomAuthenticationForm(AuthenticationForm):
 
         # Call the parent's confirm_login_allowed method to perform other default checks
         super().confirm_login_allowed(user)
+        
+class EmpresarioQuestionnaireForm(forms.ModelForm):
+    class Meta:
+        model = EmpresarioUser
+        fields = ('company_startup_name', 'team_leader', 'team_leader_linkedin', 'gender', 'age', 'location', 'primary_email', 'primary_contact', 'cofounder', 'cofounder_email', 'cofounder_contact')

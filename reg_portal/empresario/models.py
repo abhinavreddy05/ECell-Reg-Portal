@@ -21,6 +21,7 @@ class EmpresarioUser(models.Model):
     cofounder = models.CharField(max_length=255, null=True)
     cofounder_email = models.EmailField(null=True)
     cofounder_contact = models.CharField(max_length=15)
+    questionare_submitted = models.BooleanField(default=False)
     
     def __str__(self):
         return self.user.username

@@ -4,83 +4,121 @@
     padding: 0 2rem;
 }
 
-.main h1{
-    text-align: center;
+.main span{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem;
+}
+
+.main span h1{
+    margin: 0;
+}
+
+.main span #logo{
+    height: 60px;
+    width: auto;
 }
 
 .main .content{
+    color: black;
+    gap: 1rem;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin-bottom: 2rem;
+}
+
+.main .content .card{
+    padding: 1rem;
+    border-radius: 29px;
+    background: hsl(220deg 14% 97%) !important;
+    box-shadow: 0 1px 3px #0000001f, 0 1px 2px #0000003d !important;
+}
+
+.main .content  .card1{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 700;
 }
 
-.main .top{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.main .top .user{
-    display: flex;
-    flex-direction: row;
-    background-color: #00000010;
-    padding: 2rem;
-    border-radius: 2rem;
-    gap: 2rem;
-    min-width: fit-content;
-}
-
-.main .top .user .left{
+.main .content  .card1 .profile{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0 1rem;
     justify-content: center;
-    min-width: fit-content;
 }
 
-.main .top .user .left img{
+.main .content  .card1 .profile img{
     border-radius: 100rem;
-    width: 150px;
-    height: 150px;
-    padding: 0.1rem;
-    border: 3px solid #333;
+    width: 160px;
+    height: 160px;
+    border: 2px solid rgba(0, 0, 0, 0.8);
+    padding: 0.25rem;
 }
 
-.main .top .user .right{
+.main .content  .card1 .profile h3{
+    margin: 0rem;
+}
+
+.main .content  .card1 .info ul{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.main .content  .card1 .info ul li{
+    display: flex;
+    color: rgba(0, 0, 0, 0.75);
+}
+
+.main .content  .card1 .info ul li span{
+    color: black;
+    margin: 0 0.2rem;
+}
+
+.main .content  .card3{
     display: flex;
     flex-direction: column;
     min-width: fit-content;
-}
-
-.main .top .user .right ul{
-    display: flex;
-    flex-direction: row;
     gap: 1rem;
-    flex-wrap: wrap;
+    
 }
 
-.main .top .ead{
-    display: flex;
-    flex-direction: column;
-    background-color: #00000010;
-    padding: 2rem;
-    border-radius: 2rem;
-    min-width: fit-content;
-    gap: 1rem;
+.main .content  .card3 h3{
+    margin: 0.2rem 0;
 }
 
-.main .top .ead img{
-    width: 200px;
+@media (max-width:600px) {
+    .main{
+        padding: 1rem;
+    }
+
+    .main span{
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 1rem;
+    }
+
+    .main .content{
+        padding: 0.5rem;
+    }
+    .main .content .card1{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
-.main .middle{
-    padding: 1rem 0;
-}
-
-.main .middle .notice{
-    background-color: #00000010;
-    padding: 1rem;
-    border-radius: 2rem;
-    height: 100%;
+@media (max-width: 1000px) {
+    .main .content{
+        gap: 1.8rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+    }
 }

@@ -1,5 +1,20 @@
 from django.shortcuts import render, redirect
 from .forms import CombinedRegistrationForm, CustomAuthenticationForm
+from django.contrib.auth.decorators import login_required
+from .decorators import for_empresario
+from .models import EmpresarioUser, EmpresarioQuestionnaire
+
+@login_required(login_url='/empresario/')
+@for_empresario
+def dashboard(request):
+    user = request.user
+    userinfo = EmpresarioUser.objects.get(primary_email = user.email)
+    if(not userinfo.questionare_submitted):
+        print("didn't submit")
+    context = {
+        'userinfo':userinfo
+    }
+    return render(request, 'empresario/dashboard.html',context)
 
 def login(request):
     return render(request, 'empresario/login.html')

@@ -9,14 +9,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
 
-    <link rel="stylesheet" href="{% static 'css/ead_style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/empresario_style.css' %}">
     
     {% if 'dashboard' in request.path %}
-        <link rel="stylesheet" href="{% static 'css/ead_dashboard.css' %}">
+        <link rel="stylesheet" href="{% static 'css/empresario_dashboard.css' %}">
     {% endif %}
 
     <!-- Hint CSS -->
-    <link rel="stylesheet" href="{% static 'css/ead_hint.base.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/hint.base.css' %}" />
 
     <!-- Google Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -39,13 +39,13 @@
             <div class="middle">
                 <nav>
                     <ul>
-                        <li><a href="{% url 'ead_dashboard' %}" {% url 'ead_dashboard' as url %}
+                        <li><a href="{% url 'empresario_dashboard' %}" {% url 'empresario_dashboard' as url %}
                             {% if request.path == url %} class="active"{% endif %}
                             aria-label="Dashboard">
                             <span class="material-symbols-outlined">team_dashboard</span>
                             <span class="linktxt">Dashboard</span></a></li>
 
-                        <li><a href="{% url 'ead_result' %}" {% url 'ead_result' as url %}
+                        {% comment %} <li><a href="{% url 'empresario_result' %}" {% url 'empresario_result' as url %}
                                 {% if request.path == url %} class="active" {% endif %}
                                 aria-label="Participants">
                                 <span class="material-symbols-outlined">
@@ -54,7 +54,7 @@
                                 <span class="linktxt">Result</span></a>
                         </li>
 
-                        <li><a href="{% url 'ead_event' %}" {% url 'ead_event' as url %}
+                        <li><a href="{% url 'empresario_event' %}" {% url 'empresario_event' as url %}
                             {% if request.path == url %} class="active" {% endif %}
                             aria-label="Leaderboard">
                             <span class="material-symbols-outlined">
@@ -62,16 +62,16 @@
                                 </span>
                             <span class="linktxt">Event Details</span></a></li>
 
-                        <li><a href="{% url 'ead_certificate' %}" {% url 'ead_certificate' as url %}
+                        <li><a href="{% url 'empresario_certificate' %}" {% url 'empresario_certificate' as url %}
                                 {% if request.path == url %} class="active" {% endif %}
                                 aria-label="Participants">
                                 <span class="material-symbols-outlined">
                                     card_membership
                                     </span>
                                 <span class="linktxt">Certificate</span></a>
-                        </li>
+                        </li> {% endcomment %}
                         
-                        <li><a href="{% url 'logout' %}?next={% url 'ead_home' %}" aria-label="Log out">
+                        <li><a href="{% url 'logout' %}?next={% url 'empresario_home' %}" aria-label="Log out">
                             <span class="material-symbols-outlined">logout</span>
                             <span class="linktxt">Log out</span></a></li>
                     </ul>

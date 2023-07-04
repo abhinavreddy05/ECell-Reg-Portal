@@ -14,14 +14,15 @@ class EmpresarioUser(models.Model):
         ('other', 'Prefer not to say'),
     ]
     gender = models.CharField(max_length=255, choices=GENDER_CHOICES)
-    age = models.IntegerField()
+    age = models.IntegerField(null=True)
     location= models.CharField(max_length=255)
     primary_email = models.EmailField()
     primary_contact = models.CharField(max_length=15, unique=True)
-    cofounder = models.CharField(max_length=255, null=True)
-    cofounder_email = models.EmailField(null=True)
-    cofounder_contact = models.CharField(max_length=15)
+    cofounder = models.CharField(max_length=255, blank=True, null=True)
+    cofounder_email = models.EmailField(blank=True, null=True)
+    cofounder_contact = models.CharField(blank=True, null=True, max_length=15)
     questionare_submitted = models.BooleanField(default=False)
+    profile_image = models.ImageField(null=True, blank=True, upload_to='profiles/')
     
     def __str__(self):
         return self.user.username
@@ -65,7 +66,8 @@ class EmpresarioQuestionnaire(models.Model):
     ip_stage = models.CharField(max_length=255, choices=IPSTAGE)
     website_link = models.URLField(max_length=255, null=True)
     
-
+    def __str__(self):
+        return self.user.username
 
 
 

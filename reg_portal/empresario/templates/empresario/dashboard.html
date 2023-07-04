@@ -2,6 +2,24 @@
 {% load static %}
 
 {% block content %}
+
+{% if questionnaire %}
+<div class="form-container col-10">
+    <p class="title">Questionnaire</p>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="input-group">
+            {{ field.label }}
+            {{ field }}
+        </div>
+        {% endfor %}
+        <br>
+        <button class="sign" type="submit">Submit</button>
+    </form>
+</div>
+{% else %}
+    
 <span>
     <h1>Dashboard</h1>
     <img id="logo" src="{% static 'images/empresario.png' %}" alt="">
@@ -9,23 +27,45 @@
 <div class="content">
         <div class="card card1">
             <div class="profile">
-                <img src="{% static 'images/profile.jpeg' %}" alt="Profile">
+                
+                {% if userinfo.profile_image %}
+                    <img src="{{userinfo.profile_image.url}}" alt="Profile">
+                {% else %}
+                    <img src="{% static 'images/user.png' %}" alt="Profile">
+                {% endif %}
+                
+                <form class="profileForm" method = "post" enctype="multipart/form-data"> 
+                    {% csrf_token %}
+                    
+                    {% for field in form %}
+                        {{ field }} 
+                    {% endfor %}
+
+                    <button type="submit"><span class="material-symbols-outlined">
+                        done
+                        </span></button> 
+                </form>
+
                 <h3>{{user.name}}</h3>
             </div>
             <div class="info">
                 <ul>
-                    <li>Team Leader: <span>{{user.name}}</span></li>
-                    <li>Email: <span>{{user.email}}</span></li>
+                    <li>Startup: <span>{{userinfo.company_startup_name}}</span></li>
+                    <li>Founder: <span>{{userinfo.team_leader}}</span></li>
+                    <li>Email: <span>{{userinfo.primary_email}}</span></li>
                     <li>Mobile: <span>{{userinfo.primary_contact}}</span></li>
+                    {% if userinfo.cofounder %}
+                        <li>Co-founder: <span>{{userinfo.cofounder}}</span></li>
+                    {% endif %}
                     <li>City: <span>{{userinfo.location}}</span></li>
                 </ul>
             </div>
         </div>
         <div class="card">
-
+                
         </div>
         <div class="card card3">
-            <h3>Announcements:</h3>
+            <h3>Notice:</h3>
             <div class="info">
                 <ul>
                     <li>Event poster out, checkout the speakers now!</li>
@@ -36,4 +76,20 @@
             
         </div>
 </div>
+
+<script>
+    const formFields = document.querySelectorAll('.profileForm input, .profileForm label');
+    // const formTexts = document.querySelectorAll('.profileForm > :not(input):not(label)');
+
+    formFields.forEach(field => {
+        field.style.display = 'none';
+    });
+
+    formFields[formFields.length - 1].style.display = ''
+    formFields[formFields.length - 1].style.width = '99px'
+
+</script>
+
+
+{%endif%}
 {% endblock content %}

@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
-from .models import EmpresarioUser
+from .models import EmpresarioUser, EmpresarioQuestionnaire
 from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import redirect
 
@@ -20,6 +20,10 @@ class EmpresarioUserForm(forms.ModelForm):
         widget=forms.Select(attrs={'class': 'form-control'})
     )
 
+    cofounder = forms.CharField(required=False)
+    cofounder_email = forms.EmailField(required=False)
+    cofounder_contact = forms.CharField(required=False)
+    
     class Meta:
         model = EmpresarioUser
         fields = ('company_startup_name', 'team_leader', 'team_leader_linkedin', 'gender', 'age', 'location', 'primary_email', 'primary_contact', 'cofounder', 'cofounder_email', 'cofounder_contact')
@@ -58,5 +62,15 @@ class CustomAuthenticationForm(AuthenticationForm):
         
 class EmpresarioQuestionnaireForm(forms.ModelForm):
     class Meta:
+        model = EmpresarioQuestionnaire
+        exclude = ["user"]
+        
+        widgets = {
+            'problem_solving': forms.Textarea(attrs={'rows': 3}),
+            'proposed_solution': forms.Textarea(attrs={'rows': 3}),
+        }
+        
+class ProfileForm(forms.ModelForm):
+    class Meta:
         model = EmpresarioUser
-        fields = ('company_startup_name', 'team_leader', 'team_leader_linkedin', 'gender', 'age', 'location', 'primary_email', 'primary_contact', 'cofounder', 'cofounder_email', 'cofounder_contact')
+        fields = ('profile_image',)

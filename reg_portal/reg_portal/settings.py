@@ -136,7 +136,7 @@ AUTH_USER_MODEL = 'landingPage.CustomUser'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'abhinav25102005@gmail.com'
-EMAIL_HOST_PASSWORD = 'vnqsfcvhfrbzgvqf'
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 
 CSRF_COOKIE_SECURE = True

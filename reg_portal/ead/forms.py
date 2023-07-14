@@ -20,6 +20,11 @@ class EADUserForm(forms.ModelForm):
         widget=forms.Select(attrs={'class': 'form-control'})
     )
 
+    is_ca = forms.BooleanField(
+        label='Want to register as a Campus Ambassador?',
+        widget=forms.Select(choices=[(True, 'Yes'), (False, 'No')]),
+    )
+
     class Meta:
         model = EADUser
         fields = ('mobile', 'college_name', 'ead_city', 'is_ca')
@@ -52,3 +57,8 @@ class CustomAuthenticationForm(AuthenticationForm):
 
         # Call the parent's confirm_login_allowed method to perform other default checks
         super().confirm_login_allowed(user)
+        
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = EADUser
+        fields = ('profile_image',)

@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.conf import settings
+from datetime import date
 
 class EmpresarioUser(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, primary_key=True)
@@ -64,10 +65,22 @@ class EmpresarioQuestionnaire(models.Model):
         ('haventfilled', "Haven't filled the patent but has the potential to create IP portfolio"),
     ]
     ip_stage = models.CharField(max_length=255, choices=IPSTAGE)
-    website_link = models.URLField(max_length=255, null=True)
+    website_link = models.URLField(max_length=255, null=True, blank=True)
+    miscellaneous = models.CharField(max_length=255, null=True, blank=True)
+    pitch_deck = models.FileField(null=True, blank=True, upload_to='pitchdeck/')
+    supporting_docs = models.CharField(max_length=255)
+    miscellaneous = models.CharField(max_length=255)
+    reach = models.CharField(max_length=255, null=True, blank=True)
     
     def __str__(self):
         return self.user.username
 
 
+class EmpresarioNotice(models.Model):
+    title = models.CharField(max_length=255)
+    desc = models.CharField(max_length=255)
+    date = models.DateField(default=date.today, blank=True)
+
+    def __str__(self):
+        return self.title
 

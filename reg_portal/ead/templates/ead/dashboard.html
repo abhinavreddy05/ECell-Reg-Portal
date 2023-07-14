@@ -2,38 +2,78 @@
 {% load static %}
 
 {% block content %}
+   
 <span>
     <h1>Dashboard</h1>
     <img id="logo" src="{% static 'images/ead.png' %}" alt="">
 </span>
 <div class="content">
         <div class="card card1">
-            <div class="profile">
-                <img src="{% static 'images/profile.jpeg' %}" alt="Profile">
-                <h3>John Doe</h3>
-            </div>
-            <div class="info">
-                <ul>
-                    <li>Email: <span>emailtemp@gmail.com</span></li>
-                    <li>Mobile: <span>7981587112</span></li>
-                    <li>City: <span>Hyderabad</span></li>
-                    <li>College: <span>Sreenidhi College of Engineering</span></li>
-                </ul>
-            </div>
-        </div>
-        <div class="card">
+            <div class="profile col-4">
+                
+                {% if userinfo.profile_image %}
+                    <img src="{{userinfo.profile_image.url}}" alt="Profile">
+                {% else %}
+                    <img src="{% static 'images/user.png' %}" alt="Profile">
+                {% endif %}
+                
+                <form class="profileForm" method = "post" enctype="multipart/form-data"> 
+                    {% csrf_token %}
+                    
+                    {% for field in form %}
+                        {{ field }} 
+                    {% endfor %}
 
-        </div>
-        <div class="card card3">
-            <h3>Announcements:</h3>
-            <div class="info">
+                    <button type="submit"><span class="material-symbols-outlined">
+                        done
+                        </span></button> 
+                </form>
+
+                <h3>{{user.name}}</h3>
+            </div>
+            <div class="info col-8">
                 <ul>
-                    <li>Event poster out, checkout the speakers now!</li>
+                    <li>Email: <span>{{user.email}}</span></li>
+                    <li>Mobile: <span>{{userinfo.mobile}}</span></li>
+                    <li>College: <span>{{userinfo.college_name}}</span></li>
+                    <li>City: <span>{{userinfo.ead_city}}</span></li>
+                    {% if userinfo.is_ca %}
+                        <li><p>Referral Code:<p> <span>{{userinfo.referral_code}}</span></li>
+                        <li><p>No.of Refarrals:</p> <span>0</span></li>
+                    {% endif %} 
                 </ul>
             </div>
         </div>
-        <div class="card">
-            
+
+        <div class="card card2">
+            <h3>Status:</h3>
+            <div class="subcards">
+            </div>
+        </div>
+
+        <div class="card card3">
+            <h3>Notice:</h3>
+            <div class="info">
+                <ul>                    
+                    {% for notice in notices %}
+                        <li><strong>{{notice.title}}</strong>: {{notice.desc}} <br> {{notice.date}}</li>
+                    {% endfor %}    
+                </ul>
+            </div>
         </div>
 </div>
+
+<script>
+    const formFields = document.querySelectorAll('.profileForm input, .profileForm label');
+    // const formTexts = document.querySelectorAll('.profileForm > :not(input):not(label)');
+
+    formFields.forEach(field => {
+        field.style.display = 'none';
+    });
+
+    formFields[formFields.length - 1].style.display = ''
+    formFields[formFields.length - 1].style.width = '99px'
+
+</script>
+
 {% endblock content %}

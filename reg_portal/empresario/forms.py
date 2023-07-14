@@ -68,6 +68,7 @@ class EmpresarioQuestionnaireForm(forms.ModelForm):
         widgets = {
             'problem_solving': forms.Textarea(attrs={'rows': 3}),
             'proposed_solution': forms.Textarea(attrs={'rows': 3}),
+            'miscellaneous': forms.Textarea(attrs={'rows':3}),
         }
         
 class ProfileForm(forms.ModelForm):

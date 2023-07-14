@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import CombinedRegistrationForm, CustomAuthenticationForm, EmpresarioQuestionnaireForm, ProfileForm
 from django.contrib.auth.decorators import login_required
 from .decorators import for_empresario
-from .models import EmpresarioUser, EmpresarioQuestionnaire
+from .models import EmpresarioUser, EmpresarioQuestionnaire, EmpresarioNotice
 
 @login_required(login_url='/empresario/')
 @for_empresario
@@ -32,10 +32,13 @@ def dashboard(request):
         else:
             form = ProfileForm(instance=userinfo)
         questionnaire = False
+    notices = EmpresarioNotice.objects.all().order_by('-date')
+
     context = {
         'userinfo':userinfo,
         'questionnaire':questionnaire,
-        'form':form
+        'form':form,
+        'notices': notices
     }
     return render(request, 'empresario/dashboard.html',context)
 

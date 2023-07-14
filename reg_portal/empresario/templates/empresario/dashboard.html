@@ -61,14 +61,50 @@
                 </ul>
             </div>
         </div>
-        <div class="card">
-                
+
+        <div class="card card2">
+            <h3>Status:</h3>
+            <div class="subcards">
+                <div class="card">
+                    <h4 class="col-8">Questionnaire</h4>
+                    <div class="status col-4 {{questionnaire}}">
+                        {% if not questionnaire %}
+                            Uploaded
+                        {%else%}
+                            Pending
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="card">
+                    <h4 class="col-8">Pitch Deck</h4>
+                    <div class="status col-4 {{pitch}}">
+                        {% if false %}
+                            Uploaded
+                        {%else%}
+                            Pending
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="card">
+                    <h4 class="col-8">Result</h4>
+                    <div class="status col-4 {{pitch}}">
+                        {% if false %}
+                            Released
+                        {%else%}
+                            Pending
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
         </div>
+
         <div class="card card3">
             <h3>Notice:</h3>
             <div class="info">
-                <ul>
-                    <li>Event poster out, checkout the speakers now!</li>
+                <ul>                    
+                    {% for notice in notices %}
+                        <li><strong>{{notice.title}}</strong>: {{notice.desc}} <br> {{notice.date}}</li>
+                    {% endfor %}    
                 </ul>
             </div>
         </div>

@@ -1,0 +1,68 @@
+{% extends './template.html' %}
+{% load static %}
+
+{% block content %}
+<div class="top col-10">
+    <div class="">
+        <h1>Result</h1>
+    </div>
+</div>
+<div class="middle col-10">
+    <div class="container col-11">
+        <h2>Statistics</h2>
+        <div class="cards">
+            <div class="card">
+                <span class="material-symbols-outlined">
+                    social_leaderboard
+                </span>
+                <h4>Rank: <span>46</span></h4>
+            </div>
+            <div class="card">
+                <span class="material-symbols-outlined">
+                    speed
+                </span>
+                <h4>Your Score: <span>65</span></h4>
+            </div>
+            <div class="card">
+                <span class="material-symbols-outlined">
+                    trophy
+                </span>
+                <h4>Top Score: <span>100</span></h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="container col-11">
+        <h2>Leaderboard</h2>
+        <table>
+            <caption></caption>
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Rank</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for score in scores %}
+                <tr>
+                    <td data-label="Name" style="text-transform: capitalize">{{ score.Name_name }}</td>
+                    <td data-label="Rank">{{ score.marks_given }}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td data-label="Name" style="text-transform: capitalize">User1</td>
+                    <td data-label="Rank">1</td>
+                </tr>
+                <tr>
+                    <td data-label="Name" style="text-transform: capitalize">User2</td>
+                    <td data-label="Rank">2</td>
+                </tr>
+                <tr>
+                    <td data-label="Name" style="text-transform: capitalize">User3</td>
+                    <td data-label="Rank">3</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock content %}

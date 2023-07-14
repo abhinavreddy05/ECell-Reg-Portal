@@ -15,6 +15,14 @@
         <link rel="stylesheet" href="{% static 'css/ead_dashboard.css' %}">
     {% endif %}
 
+    {% if 'result' in request.path %}
+        <link rel="stylesheet" href="{% static 'css/ead_result.css' %}">
+    {% endif %}
+
+    {% if 'event' in request.path %}
+        <link rel="stylesheet" href="{% static 'css/ead_event.css' %}">
+    {% endif %}
+
     <!-- Hint CSS -->
     <link rel="stylesheet" href="{% static 'css/ead_hint.base.css' %}" />
 

@@ -22,12 +22,13 @@ class EADUserForm(forms.ModelForm):
 
     is_ca = forms.BooleanField(
         label='Want to register as a Campus Ambassador?',
-        widget=forms.Select(choices=[(True, 'Yes'), (False, 'No')]),
+        widget=forms.Select(choices=[(True, 'Yes'), (False, 'No')]), required=False
     )
 
     class Meta:
         model = EADUser
         fields = ('mobile', 'college_name', 'ead_city', 'is_ca')
+        exclude = ['referred_by', 'referral_code']
 
 class CombinedRegistrationForm(forms.Form):
     def __init__(self, *args, **kwargs):

@@ -290,7 +290,7 @@
 }
 
 
-@media (max-width:600px) {
+@media (max-width:700px) {
     .main{
         padding: 1rem;
     }
@@ -326,11 +326,16 @@
     }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
     .main .content{
         gap: 1.8rem;
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto auto;
+    }
+
+    .main .content .card2{
+        grid-row: auto;
+        grid-column: auto;
     }
 }

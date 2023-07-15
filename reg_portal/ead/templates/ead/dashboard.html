@@ -31,6 +31,15 @@
 
                 <h3>{{user.name}}</h3>
             </div>
+            
+            {% if userinfo.is_ca %}
+                <div class="share">
+                    {% with referral as code %}
+                        <a href="{% url 'ead_register' code=code %}" target="blank">Referral Link</a>
+                    {% endwith %}
+                </div>
+            {% endif %}
+                
             <div class="info col-8">
                 <ul>
                     <li>Email: <span>{{user.email}}</span></li>
@@ -39,15 +48,20 @@
                     <li>City: <span>{{userinfo.ead_city}}</span></li>
                     {% if userinfo.is_ca %}
                         <li><p>Referral Code:<p> <span>{{userinfo.referral_code}}</span></li>
-                        <li><p>No.of Refarrals:</p> <span>0</span></li>
+                        <li><p>Referrals:</p> <span>{{referral_no}}</span></li>
                     {% endif %} 
                 </ul>
             </div>
         </div>
 
         <div class="card card2">
-            <h3>Status:</h3>
+            <h3>Referred Users:</h3>
             <div class="subcards">
+                <ol>
+                    {% for obj in referred_users %}
+                        <li>{{obj.user}}</li>
+                    {% endfor %}
+                </ol>
             </div>
         </div>
 

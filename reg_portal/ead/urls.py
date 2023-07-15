@@ -7,6 +7,7 @@ from .forms import CustomAuthenticationForm
 urlpatterns = [
     path('', views.register, name="ead_home"),
     path('register/', views.register, name="ead_register"),
+    path('register/<slug:code>/', views.register, name="ead_register"),
     path('login/',  LoginView.as_view(template_name='ead/login.html', authentication_form=CustomAuthenticationForm), name="ead_login"),
 
     path('dashboard/', views.dashboard, name="ead_dashboard"),

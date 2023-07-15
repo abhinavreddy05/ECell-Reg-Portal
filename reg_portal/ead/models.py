@@ -17,6 +17,7 @@ class EADUser(models.Model):
     is_ca = models.BooleanField('campus ambassador', default=False)
     profile_image = models.ImageField(null=True, blank=True, upload_to='ead/profiles/')
     referral_code = models.CharField(max_length=6, unique=True, null=True, blank=True)
+    referred_by = models.CharField(max_length=6, null=True, blank=True)
     
     def __str__(self):
         return self.user.username
@@ -36,6 +37,8 @@ class EADUser(models.Model):
         # Generate a random 6-digit number
         return str(random.randint(100000, 999999))
     
+    def set_referred_by(self, code):
+        self.referred_by = code
 class EADNotice(models.Model):
     title = models.CharField(max_length=255)
     desc = models.CharField(max_length=255)

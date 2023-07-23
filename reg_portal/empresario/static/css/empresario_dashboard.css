@@ -301,7 +301,21 @@
     background-color: #6fc276;
 }
 
+.main .content .card4{
+    display: flex;
+    flex-direction: column;
+}
 
+.main .content .card4 h2{
+    margin: 0.6rem 0;
+    margin-bottom: 0rem;
+}
+
+.main .content .card4 p{
+    font-size: 0.8rem;
+    opacity: 0.7;
+    font-weight: 600;
+}
 
 @media (max-width:600px) {
     .main{

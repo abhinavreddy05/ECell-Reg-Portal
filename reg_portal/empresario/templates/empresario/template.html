@@ -15,6 +15,14 @@
         <link rel="stylesheet" href="{% static 'css/empresario_dashboard.css' %}">
     {% endif %}
 
+    {% if 'result' in request.path %}
+        <link rel="stylesheet" href="{% static 'css/empresario_result.css' %}">
+    {% endif %}
+
+    {% if 'connect' in request.path %}
+        <link rel="stylesheet" href="{% static 'css/empresario_connect.css' %}">
+    {% endif %}
+
     <!-- Hint CSS -->
     <link rel="stylesheet" href="{% static 'css/hint.base.css' %}" />
 
@@ -45,28 +53,28 @@
                             <span class="material-symbols-outlined">team_dashboard</span>
                             <span class="linktxt">Dashboard</span></a></li>
 
-                        {% comment %} <li><a href="{% url 'empresario_result' %}" {% url 'empresario_result' as url %}
+                            <li><a href="{% url 'empresario_result' %}" {% url 'empresario_result' as url %}
                                 {% if request.path == url %} class="active" {% endif %}
-                                aria-label="Participants">
+                                aria-label="Result">
                                 <span class="material-symbols-outlined">
                                     assignment_turned_in
-                                </span>
-                                <span class="linktxt">Result</span></a>
-                        </li>
+                                    </span>
+                                <span class="linktxt">Result</span></a></li>
 
-                        <li><a href="{% url 'empresario_event' %}" {% url 'empresario_event' as url %}
-                            {% if request.path == url %} class="active" {% endif %}
-                            aria-label="Leaderboard">
-                            <span class="material-symbols-outlined">
-                                event
-                                </span>
-                            <span class="linktxt">Event Details</span></a></li>
+                            <li><a href="{% url 'empresario_connect' %}" {% url 'empresario_connect' as url %}
+                                    {% if request.path == url %} class="active" {% endif %}
+                                    aria-label="Connect">
+                                    <span class="material-symbols-outlined">
+                                        hub
+                                    </span>
+                                    <span class="linktxt">Connect</span></a>
+                            </li>
 
-                        <li><a href="{% url 'empresario_certificate' %}" {% url 'empresario_certificate' as url %}
+                        {% comment %} <li><a href="{% url 'empresario_' %}" {% url 'empresario_certificate' as url %}
                                 {% if request.path == url %} class="active" {% endif %}
                                 aria-label="Participants">
                                 <span class="material-symbols-outlined">
-                                    card_membership
+                                    co_present
                                     </span>
                                 <span class="linktxt">Certificate</span></a>
                         </li> {% endcomment %}

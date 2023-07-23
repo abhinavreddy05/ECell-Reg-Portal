@@ -6,6 +6,16 @@ from .models import EmpresarioUser, EmpresarioQuestionnaire, EmpresarioNotice
 
 @login_required(login_url='/empresario/')
 @for_empresario
+def result(request):
+    return render(request, 'empresario/result.html')
+
+@login_required(login_url='/empresario/')
+@for_empresario
+def connect(request):
+    return render(request, 'empresario/connect.html')
+
+@login_required(login_url='/empresario/')
+@for_empresario
 def dashboard(request):
     user = request.user
     userinfo = EmpresarioUser.objects.get(user__id = user.id)

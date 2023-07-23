@@ -12,7 +12,9 @@ urlpatterns = [
     path('login/',  LoginView.as_view(template_name='empresario/login.html', authentication_form=CustomAuthenticationForm), name="empresario_login"),
 
     path('dashboard/', views.dashboard, name="empresario_dashboard"),
-
+    path('result/', views.result, name="empresario_result"),
+    path('connect/', views.connect, name="empresario_connect"),
+    
     path('logout/', LogoutView.as_view(template_name='customUser/mainpage.html'), name='logout'),
 ]
 

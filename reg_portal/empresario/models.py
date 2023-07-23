@@ -23,7 +23,7 @@ class EmpresarioUser(models.Model):
     cofounder_email = models.EmailField(blank=True, null=True)
     cofounder_contact = models.CharField(blank=True, null=True, max_length=15)
     questionare_submitted = models.BooleanField(default=False)
-    profile_image = models.ImageField(null=True, blank=True, upload_to='profiles/')
+    profile_image = models.ImageField(null=True, blank=True, upload_to='empresario/profiles/')
     
     def __str__(self):
         return self.user.username
@@ -67,7 +67,7 @@ class EmpresarioQuestionnaire(models.Model):
     ip_stage = models.CharField(max_length=255, choices=IPSTAGE)
     website_link = models.URLField(max_length=255, null=True, blank=True)
     miscellaneous = models.CharField(max_length=255, null=True, blank=True)
-    pitch_deck = models.FileField(null=True, blank=True, upload_to='pitchdeck/')
+    pitch_deck = models.FileField(null=True, blank=True, upload_to='empresario/pitchdeck/')
     supporting_docs = models.CharField(max_length=255)
     miscellaneous = models.CharField(max_length=255)
     reach = models.CharField(max_length=255, null=True, blank=True)

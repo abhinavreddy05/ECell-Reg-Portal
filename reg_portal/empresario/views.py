@@ -6,6 +6,16 @@ from .models import EmpresarioUser, EmpresarioQuestionnaire, EmpresarioNotice
 
 @login_required(login_url='/empresario/')
 @for_empresario
+def timeline(request):
+    return render(request, 'empresario/timeline.html')
+
+@login_required(login_url='/empresario/')
+@for_empresario
+def finals(request):
+    return render(request, 'empresario/event.html')
+
+@login_required(login_url='/empresario/')
+@for_empresario
 def result(request):
     return render(request, 'empresario/result.html')
 

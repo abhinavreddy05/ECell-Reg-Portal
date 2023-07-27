@@ -67,3 +67,18 @@
 .main .container .cards .card h3{
     text-transform: capitalize;
 }
+
+@media (max-width:800px) {
+    .main {
+        text-align: center;
+    }
+
+    .main .container .cards{
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .main .container .cards .card{
+        min-width: fit-content;
+    }
+}

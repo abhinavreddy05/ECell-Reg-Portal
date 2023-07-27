@@ -1,0 +1,96 @@
+{% extends './template.html' %}
+{% load static %}
+
+{% block content %}
+<script src="{% static 'js/timer.js' %}"></script>
+
+    <div class="left col-7">
+        <div class="top">
+            <img src="{% static 'images/empresario-image.jpg' %}" alt="">
+            {% comment %} <div class="image-slideshow">
+                <div class="image fade">
+                    <img src="{% static 'images/empresario-image.jpg' %}" alt="">
+                </div>
+                <div class="image fade">
+                    <img src="{% static 'images/empresario-image1.jpg' %}" alt="">
+                </div>
+                <div class="image fade">
+                    <img src="{% static 'images/empresario-image2.jpg' %}" alt="">
+                </div>
+            </div> {% endcomment %}
+        </div>
+        <div class="bottom">
+            <h3>About</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec dolor risus. Sed sodales rhoncus odio vitae scelerisque. Sed quis porttitor neque. Ut at turpis aliquet, commodo velit et, aliquam leo. Aliquam vitae lobortis purus. Quisque congue sem sit amet iaculis ultricies. Nullam dictum justo a erat pulvinar tincidunt. Vestibulum ullamcorper libero nec eros lobortis ullamcorper. Vivamus nec purus convallis, cursus sapien molestie, tincidunt leo. Cras eget porttitor nibh. Nunc eget arcu bibendum, imperdiet magna vel, auctor purus.</p>
+        </div>
+    </div>
+    <div class="right col-4">
+        <div class="top">
+            <h2>Empresario</h2>
+            <div class="info">
+                <ul>
+                    <li><span class="material-symbols-outlined">
+                        calendar_today
+                        </span>25th October</li>
+                    <li><span class="material-symbols-outlined">
+                        schedule
+                        </span>2:00 PM</li>
+                    <li><span class="material-symbols-outlined">
+                        location_on
+                        </span>Taj Bengal, Kolkata, West Bengal, 700010</li>
+                </ul>
+            </div>
+            <div class="bar">
+                <a href="">
+                    <h4>View Finalists</h4>
+                <span class="material-symbols-outlined">
+                    checklist
+                </span>
+                </a>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="first">
+                <div class="box col-4">
+                    <h4>25</h4>
+                    <span>Oct</span>
+                </div>
+                <div class="info col-8">
+                    <h4>Empresario</h4>
+                    <p>2:00PM UTC+5:30</p>
+                </div>
+            </div>
+            <div class="second">
+                        <div class="block">
+                            <ul>
+                                <li class="days">8</li>
+                                <li class="days">0</li>
+                            </ul>
+                            <p>days</p>
+                        </div>
+                        <div class="block">
+                            <ul>
+                                <li class="hours">2</li>
+                                <li class="hours">0</li>
+                            </ul>
+                            <p>hours</p>
+                        </div>
+                        <div class="block">
+                            <ul>
+                                <li class="minutes">1</li>
+                                <li class="minutes">0</li>
+                            </ul>
+                            <p>minutes</p>
+                        </div>
+                        <div class="block">
+                            <ul>
+                                <li>0</li>
+                                <li>6</li>
+                            </ul>
+                            <p>seconds</p>
+                        </div>
+            </div>
+            
+        </div>
+    </div>
+{% endblock content %}
